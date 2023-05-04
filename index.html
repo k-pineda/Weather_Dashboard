@@ -13,20 +13,25 @@
     <body>
         <header class="p-3 mb-4 bg-secondary bg-gradient border-5 border-bottom border-primary text-center text-white">
             <h1>Weather Dashboard</h1>
-            <p id="currentDay" class="lead"></p>
         </header>
 
-        <div class="d-flex-flexbox p-5 col-3 search">
-            <h1>Search for a City:</h1>
+        <div class="d-flex-flexbox p-5 col-3" offset="">
+            <div class="col-xs-1 col-sm-4 col-md-4 col-lg-4">
+                <h1>Search for a City:</h1>
                 <input class="col-10 m-2 city-input" type="text" placeholder="San Diego">
-                <button type="button" class="col-10 m-2 btn btn-primary">Search</button>
+                <button type="button" class="btn btn-primary search">Search</button>
                 <div id="search-history"></div>  
+            </div>
         </div>
 
-        <div class="d-flex-flexbox p-5 col-3 weather">
-            <div id="weather-display">
-                <h3 class="weather-header text-uppercase"> &#127774;</h3>
+        <div class="d-flex-flexbox p-5 col-3 weather-display">
+            <div class="weather-header">
+                <h2 id="currentDay" class="current-forecast text-uppercase"></h2>
+                <p id="temp">Temp:</p>
+                <p id="wind">Wind:</p>
+                <p id="humidity">Humidity:</p>
             </div>
+            <div class="future-forecast"></div>
         </div>
 
 
