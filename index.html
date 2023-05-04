@@ -15,25 +15,30 @@
             <h1>Weather Dashboard</h1>
         </header>
 
-        <div class="d-flex-flexbox p-5 col-3" offset="">
+        <div class="d-flex row">
             <div class="col-xs-1 col-sm-4 col-md-4 col-lg-4">
                 <h1>Search for a City:</h1>
                 <input class="col-10 m-2 city-input" type="text" placeholder="San Diego">
                 <button type="button" class="btn btn-primary search">Search</button>
                 <div id="search-history"></div>  
             </div>
-        </div>
 
-        <div class="d-flex-flexbox p-5 col-3 weather-display">
-            <div class="weather-header">
-                <h2 id="currentDay" class="current-forecast text-uppercase"></h2>
-                <p id="temp">Temp:</p>
-                <p id="wind">Wind:</p>
-                <p id="humidity">Humidity:</p>
+            <div class="d-flex-flexbox col-3">
+                <div class="d-flex-flexbox p-5 col-3 weather-display">
+                    <div class="weather-header">
+                        <h2 id="currentDay" class="current-forecast text-uppercase"></h2>
+                        <p id="temp">Temp:</p>
+                        <p id="wind">Wind:</p>
+                        <p id="humidity">Humidity:</p>
+                    </div>
+                </div>
+
+                <div class="future-forecast">
+                    <div class="future-forecast"></div>
+                </div>
+
             </div>
-            <div class="future-forecast"></div>
         </div>
-
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script
