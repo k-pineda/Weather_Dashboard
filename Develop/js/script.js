@@ -16,18 +16,24 @@ $("#currentDay").text(currentDay);
 // step 1 fetch geo location and save data to varibale
 // step 2 plug in variable name into template literal string
 
-// var geolocation = fetch("geo location")
+var geolocation = fetch(cityUserInput.val)
 
-var geoLocation = cityUserInput.value
+// var geoLocation = cityUserInput.value
 
-var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q={city name},{state code},{country code}&appid=3484e08d51e803d19133758ad6e77ac5`;
+console.log(geoLocation)
+
+var exampleGeo= `http://api.openweathermap.org/geo/1.0/direct?q=Miami&limit=1&appid=3484e08d51e803d19133758ad6e77ac5`
+
+// var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${geoLocation}&appid=3484e08d51e803d19133758ad6e77ac5`;
 
 
-var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geolocation}&lon=${geolocation}&appid=3484e08d51e803d19133758ad6e77ac5`;
-var myName = "Allan"
-var templateLiteralExample = `Hi my name is ${myName}`
+//var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geolocation}&lon=${geolocation}&appid=3484e08d51e803d19133758ad6e77ac5`;
+// var myName = "Allan"
+// var templateLiteralExample = `Hi my name is ${myName}`
 
-console.log(templateLiteralExample);
+// console.log(templateLiteralExample);
+
+var exampleWeatherUrl= `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=3484e08d51e803d19133758ad6e77ac5&units=imperial`
 
 function getApi(requestUrl) {
     fetch(requestUrl)
@@ -36,8 +42,35 @@ function getApi(requestUrl) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+
+        // console.log(data)
+        for (var i = 0; i<data.length;i++)
+        {
+
+          if (data[i].country==="US"){
+            console.log(data[i]);
+          }
+            
+        }  
+        
+
+        // var countryCode=data[0].country
+
+        // if (countryCode==="GB"){
+        //   alert ("you got it")
+        // }
+
+        // var forecastDate = data.list[0].dt_txt
+
+        // var firstDayForecast=dayjs(forecastDate).format("(MM/DD/YYYY)")
+
+        // console.log(firstDayForecast)
+
       });
   }
 
-getApi(requestWeatherUrl);
+getApi(exampleGeo);
+// var firstDayForecast=dayjs(forecastDate).format("(MM/DD/YYYY)")
+
+// console.log(firstDayForecast)
+
