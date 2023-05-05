@@ -12,65 +12,46 @@ var weatherHumidity=$("#humidity");
 var currentDay = dayjs().format("(MM/DD/YYYY)");
 $("#currentDay").text(currentDay);
 
-
 // step 1 fetch geo location and save data to varibale
 // step 2 plug in variable name into template literal string
 
-var geolocation = fetch(cityUserInput.val)
-
-// var geoLocation = cityUserInput.value
-
-console.log(geoLocation)
-
-var exampleGeo= `http://api.openweathermap.org/geo/1.0/direct?q=Miami&limit=1&appid=3484e08d51e803d19133758ad6e77ac5`
-
-// var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${geoLocation}&appid=3484e08d51e803d19133758ad6e77ac5`;
-
-
-//var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geolocation}&lon=${geolocation}&appid=3484e08d51e803d19133758ad6e77ac5`;
-// var myName = "Allan"
-// var templateLiteralExample = `Hi my name is ${myName}`
-
-// console.log(templateLiteralExample);
-
-var exampleWeatherUrl= `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=3484e08d51e803d19133758ad6e77ac5&units=imperial`
-
 function getApi(requestUrl) {
     fetch(requestUrl)
-      .then(function (response) {
+      .then(function (response) 
+      {
         console.log(response.status);
         return response.json();
       })
-      .then(function (data) {
+      .then(function (data) 
+      {
+        return data
 
-        // console.log(data)
-        for (var i = 0; i<data.length;i++)
-        {
+        var geoLocationLat=data.city.coord.lat
 
-          if (data[i].country==="US"){
-            console.log(data[i]);
-          }
+        var geoLocationLon=data.city.coord.lon    
+ 
             
-        }  
-        
+      }  
+      )};
 
-        // var countryCode=data[0].country
 
-        // if (countryCode==="GB"){
-        //   alert ("you got it")
-        // }
+ function userSearch()
+{
+  cityName = $(cityUserInput).val()
+  localStorage.setItem('city',cityName); 
+}
 
-        // var forecastDate = data.list[0].dt_txt
+citySearchBtn.on('click', function (){
+  userSearch(); 
+var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
 
-        // var firstDayForecast=dayjs(forecastDate).format("(MM/DD/YYYY)")
+getApi(requestGeocodeUrl);
 
-        // console.log(firstDayForecast)
 
-      });
-  }
 
-getApi(exampleGeo);
-// var firstDayForecast=dayjs(forecastDate).format("(MM/DD/YYYY)")
+var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geoLocationLat}&lon=${geoLocationLon}&appid=3484e08d51e803d19133758ad6e77ac5`;
 
-// console.log(firstDayForecast)
+getApi(requestWeatherUrl)
+
+})
 
