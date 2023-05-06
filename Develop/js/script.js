@@ -12,8 +12,17 @@ var weatherHumidity=$("#humidity");
 var currentDay = dayjs().format("(MM/DD/YYYY)");
 $("#currentDay").text(currentDay);
 
-// step 1 fetch geo location and save data to varibale
-// step 2 plug in variable name into template literal string
+function getWeatherAPI (requestWeatherUrl){
+  fetch(requestWeatherUrl)
+      .then(function (response) 
+      {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+      })
+}
 
 function getApi(requestUrl) {
     fetch(requestUrl)
@@ -24,13 +33,13 @@ function getApi(requestUrl) {
       })
       .then(function (data) 
       {
-        return data
 
         var geoLocationLat=data.city.coord.lat
 
-        var geoLocationLon=data.city.coord.lon    
- 
-            
+        var geoLocationLon=data.city.coord.lon 
+
+        var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geoLocationLat}&lon=${geoLocationLon}&appid=3484e08d51e803d19133758ad6e77ac5`;
+        getWeatherAPI(requestWeatherUrl) 
       }  
       )};
 
@@ -47,11 +56,6 @@ var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${ci
 
 getApi(requestGeocodeUrl);
 
-
-
-var requestWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${geoLocationLat}&lon=${geoLocationLon}&appid=3484e08d51e803d19133758ad6e77ac5`;
-
-getApi(requestWeatherUrl)
 
 })
 
