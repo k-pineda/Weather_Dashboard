@@ -31,55 +31,43 @@
             <main>
                 <div class="d-flex-flexbox col-3">
                     <div class="d-flex-flexbox p-5 col-3 weather-display">
-                        <div class="weather-header">
+                        <div id="current-day-icon">
                             <h2 id="currentDay" class="current-forecast"></h2>
-                            <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                            src="" id="icon">
                             <p id="current-temp"></p>
                             <p id="current-wind"></p>
                             <p id="current-humidity"></p>
                         </div>
                     </div>
 
-                    <div class="future-forecast">5-Day Forecast:
+                    <div id="first-day-icon">5-Day Forecast:
                         <h5 id= "first-day" class="text-uppercase"></h5>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="first-day-icon">
                         <p id="first-day-temp"></p>
                         <p id="first-day-wind"></p>
                         <p id="first-day-humidity"></p>
                     </div>
-                    <div class="future-forecast">
+                    <div id="second-day-icon">
                         <h5 id= "second-day" class="text-uppercase"></h5>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="second-day-icon">
                         <p id="second-day-temp"></p>
                         <p id="second-day-wind"></p>
                         <p id="second-day-humidity"></p>
                     </div>
 
-                    <div class="future-forecast">
+                    <div id="third-day-icon">
                         <h5 id= "third-day" class="text-uppercase"></h5>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="third-day-icon">
                         <p id="third-day-temp"></p>
                         <p id="third-day-wind"></p>
                         <p id="third-day-humidity"></p>
                     </div>
 
-                    <div class="future-forecast">
+                    <div id="fourth-day-icon">
                         <h5 id= "fourth-day" class="text-uppercase"></h5>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="fourth-day-icon">
                         <p id="fourth-day-temp"></p>
                         <p id="fourth-day-wind"></p>
                         <p id="fourth-day-humidity"></p>
                     </div>
 
-                    <div class="future-forecast">
+                    <div id="fifth-day-icon">
                         <h5 id= "fifth-day" class="text-uppercase"></h5>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="fifth-day-icon">
                         <p id="fifth-day-temp"></p>
                         <p id="fifth-day-wind"></p>
                         <p id="fifth-day-humidity"></p>
@@ -95,6 +83,7 @@
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
         crossorigin="anonymous"
         ></script>
+        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="" id="icon">
         <script src="./Develop/js/script.js"></script>
     </body>
 </html>

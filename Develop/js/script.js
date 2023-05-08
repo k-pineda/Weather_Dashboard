@@ -23,7 +23,7 @@ function getWeatherAPI (requestWeatherUrl){
       .then(function (data) {
         console.log(data)
 
-        // $('img').remove
+        $('img').remove
 
         function dateFormat (_x)
         {
@@ -31,19 +31,23 @@ function getWeatherAPI (requestWeatherUrl){
           return dayjs(currentDayForecast_DT).format("(MM/DD/YYYY)")
         }
 
+        function getWeatherIcon(_x) 
+        {
+          var currentDayForecast_Icon=data.list[_x].weather[0].icon
+          var img = $('<img>', {src:`https://openweathermap.org/img/wn/${currentDayForecast_Icon}@2x.png`})
+          return img
+        }
+
         // current day forecast
         var currentCity=data.city.name
-        var currentDayForecast_Icon=data.list[0].weather[0].icon
         var currentDayForecast_Temp=data.list[0].main.temp
         var currentDayForecast_Wind=data.list[0].wind.speed
         var currentDayForecast_Humidity=data.list[0].main.humidity
 
-
-        var weatherIconUrl=`https://openweathermap.org/img/wn/${currentDayForecast_Icon}@2x.png`
         
-        $("#icon").attr("src",weatherIconUrl)
+        $("#current-day-icon").append(getWeatherIcon(0))
 
-        $(".weather-header h2").text(currentCity + " " + dateFormat(0))
+        $("#currentDay").text(currentCity + " " + dateFormat(0))
 
         weatherTemperature.text(`Temp:${currentDayForecast_Temp}°F`)
         
@@ -58,7 +62,7 @@ function getWeatherAPI (requestWeatherUrl){
 
         var weatherIconUrl=`https://openweathermap.org/img/wn/${firstDayForecast_Icon}@2x.png`
         
-        $("#first-day-icon").attr("src",weatherIconUrl)
+        $("#first-day-icon").append(getWeatherIcon(1))
 
         $("#first-day").text(dateFormat(1))
 
@@ -76,7 +80,7 @@ function getWeatherAPI (requestWeatherUrl){
 
         var weatherIconUrl=`https://openweathermap.org/img/wn/${secondDayForecast_Icon}@2x.png`
         
-        $("#second-day-icon").attr("src",weatherIconUrl)
+        $("#second-day-icon").append(getWeatherIcon(1))
 
         $("#second-day").text(dateFormat(9))
 
@@ -94,7 +98,7 @@ function getWeatherAPI (requestWeatherUrl){
 
         var weatherIconUrl=`https://openweathermap.org/img/wn/${thirdDayForecast_Icon}@2x.png`
         
-        $("#third-day-icon").attr("src",weatherIconUrl)
+        $("#third-day-icon").append(getWeatherIcon(17))
 
         $("#third-day").text(dateFormat(17))
 
@@ -112,7 +116,7 @@ function getWeatherAPI (requestWeatherUrl){
   
           var weatherIconUrl=`https://openweathermap.org/img/wn/${fourthDayForecast_Icon}@2x.png`
           
-          $("#fourth-day-icon").attr("src",weatherIconUrl)
+          $("#fourth-day-icon").append(getWeatherIcon(25))
   
           $("#fourth-day").text(dateFormat(25))
   
@@ -130,7 +134,7 @@ function getWeatherAPI (requestWeatherUrl){
 
           var weatherIconUrl=`https://openweathermap.org/img/wn/${fifthDayForecast_Icon}@2x.png`
           
-          $("#fifth-day-icon").attr("src",weatherIconUrl)
+          $("#fifth-day-icon").append(getWeatherIcon(33))
 
           $("#fifth-day").text(dateFormat(33))
 
