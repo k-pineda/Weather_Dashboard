@@ -138,9 +138,12 @@ function getWeatherAPI (requestWeatherUrl){
           } else {
             var button = $("<button>", {class:"history"});
             button.text(data.city.name);
-            cityHistory.prepend(button);
+            $("#city-history").prepend(button);
+              if ($("button").length>11)
+            {
+                favorites.find("button:last").remove();
+            }
           }
-
 
 
       })
