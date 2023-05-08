@@ -59,8 +59,6 @@ function getWeatherAPI (requestWeatherUrl){
         var firstDayForecast_Temp=data.list[1].main.temp
         var firstDayForecast_Wind=data.list[1].wind.speed
         var firstDayForecast_Humidity=data.list[1].main.humidity
-
-        var weatherIconUrl=`https://openweathermap.org/img/wn/${firstDayForecast_Icon}@2x.png`
         
         $("#first-day-icon").append(getWeatherIcon(1))
 
@@ -77,8 +75,6 @@ function getWeatherAPI (requestWeatherUrl){
         var secondDayForecast_Temp=data.list[9].main.temp
         var secondDayForecast_Wind=data.list[9].wind.speed
         var secondDayForecast_Humidity=data.list[9].main.humidity
-
-        var weatherIconUrl=`https://openweathermap.org/img/wn/${secondDayForecast_Icon}@2x.png`
         
         $("#second-day-icon").append(getWeatherIcon(1))
 
@@ -95,8 +91,6 @@ function getWeatherAPI (requestWeatherUrl){
         var thirdDayForecast_Temp=data.list[17].main.temp
         var thirdDayForecast_Wind=data.list[17].wind.speed
         var thirdDayForecast_Humidity=data.list[17].main.humidity
-
-        var weatherIconUrl=`https://openweathermap.org/img/wn/${thirdDayForecast_Icon}@2x.png`
         
         $("#third-day-icon").append(getWeatherIcon(17))
 
@@ -113,9 +107,7 @@ function getWeatherAPI (requestWeatherUrl){
           var fourthDayForecast_Temp=data.list[25].main.temp
           var fourthDayForecast_Wind=data.list[25].wind.speed
           var fourthDayForecast_Humidity=data.list[25].main.humidity
-  
-          var weatherIconUrl=`https://openweathermap.org/img/wn/${fourthDayForecast_Icon}@2x.png`
-          
+            
           $("#fourth-day-icon").append(getWeatherIcon(25))
   
           $("#fourth-day").text(dateFormat(25))
@@ -131,8 +123,6 @@ function getWeatherAPI (requestWeatherUrl){
           var fifthDayForecast_Temp=data.list[33].main.temp
           var fifthDayForecast_Wind=data.list[33].wind.speed
           var fifthDayForecast_Humidity=data.list[33].main.humidity
-
-          var weatherIconUrl=`https://openweathermap.org/img/wn/${fifthDayForecast_Icon}@2x.png`
           
           $("#fifth-day-icon").append(getWeatherIcon(33))
 
