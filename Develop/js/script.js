@@ -9,8 +9,7 @@ var weatherTemperature=$("#current-temp");
 var weatherWind=$("#current-wind");
 var weatherHumidity=$("#current-humidity");
 
-
-
+var cityHistory=("#city-history");
 
 
 function getWeatherAPI (requestWeatherUrl){
@@ -55,7 +54,6 @@ function getWeatherAPI (requestWeatherUrl){
 
         weatherHumidity.text(`Humidity:${currentDayForecast_Humidity}%`)
       // 1st day of 5 day forecast 
-        var firstDayForecast_Icon=data.list[1].weather[0].icon
         var firstDayForecast_Temp=data.list[1].main.temp
         var firstDayForecast_Wind=data.list[1].wind.speed
         var firstDayForecast_Humidity=data.list[1].main.humidity
@@ -71,12 +69,11 @@ function getWeatherAPI (requestWeatherUrl){
         $("#first-day-humidity").text(`Humidity:${firstDayForecast_Humidity}%`)
 
       // 2nd day of 5 day forecast 
-        var secondDayForecast_Icon=data.list[9].weather[0].icon
         var secondDayForecast_Temp=data.list[9].main.temp
         var secondDayForecast_Wind=data.list[9].wind.speed
         var secondDayForecast_Humidity=data.list[9].main.humidity
         
-        $("#second-day-icon").append(getWeatherIcon(1))
+        $("#second-day-icon").append(getWeatherIcon(9))
 
         $("#second-day").text(dateFormat(9))
 
@@ -87,7 +84,6 @@ function getWeatherAPI (requestWeatherUrl){
         $("#second-day-humidity").text(`Humidity:${secondDayForecast_Humidity}%`)
 
         // 3rd day of 5 day forecast 
-        var thirdDayForecast_Icon=data.list[17].weather[0].icon
         var thirdDayForecast_Temp=data.list[17].main.temp
         var thirdDayForecast_Wind=data.list[17].wind.speed
         var thirdDayForecast_Humidity=data.list[17].main.humidity
@@ -103,7 +99,6 @@ function getWeatherAPI (requestWeatherUrl){
         $("#third-day-humidity").text(`Humidity:${thirdDayForecast_Humidity}%`)
 
           // 4th day of 5 day forecast 
-          var fourthDayForecast_Icon=data.list[25].weather[0].icon
           var fourthDayForecast_Temp=data.list[25].main.temp
           var fourthDayForecast_Wind=data.list[25].wind.speed
           var fourthDayForecast_Humidity=data.list[25].main.humidity
@@ -119,7 +114,6 @@ function getWeatherAPI (requestWeatherUrl){
           $("#fourth-day-humidity").text(`Humidity:${fourthDayForecast_Humidity}%`)
 
           // 5th day of 5 day forecast 
-          var fifthDayForecast_Icon=data.list[33].weather[0].icon
           var fifthDayForecast_Temp=data.list[33].main.temp
           var fifthDayForecast_Wind=data.list[33].wind.speed
           var fifthDayForecast_Humidity=data.list[33].main.humidity
@@ -133,6 +127,21 @@ function getWeatherAPI (requestWeatherUrl){
           $("#fifth-day-wind").text(`Wind:${fifthDayForecast_Wind}MPH`)
 
           $("#fifth-day-humidity").text(`Humidity:${fifthDayForecast_Humidity}%`)
+
+          // adding conditional statement to prevent double search of same city
+
+          var a=$('.history').text();
+          var b=data.city.name;
+
+          if (a.includes(b)){
+            return
+          } else {
+            var button = $("<button>", {class:"history"});
+            button.text(data.city.name);
+            cityHistory.prepend(button);
+          }
+
+
 
       })
 }

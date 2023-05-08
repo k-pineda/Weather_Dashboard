@@ -17,21 +17,21 @@
 
         <div class="d-flex row">
             <aside>
-            
                 <div class="col-xs-1 col-sm-4 col-md-4 col-lg-4">
-                    <h1>Search for a City:</h1>
-                    <form>
+                    <h2>Search for a City:</h2>
+                    <form id="form-search">
                         <label for="search-query"></label>
                         <input class="col-10 m-2 city-input" type="text" id="seach-query" name="city" placeholder="San Diego">
                         <button type="search-history" class="btn btn-primary search">Search</button>
                     </form>
                 </div>
+                <div id="city-history"></div>
             </aside>
 
             <main>
                 <div class="d-flex-flexbox col-3">
                     <div class="d-flex-flexbox p-5 col-3 weather-display">
-                        <div id="current-day-icon">
+                        <div id="current-day-icon" class="current-day">
                             <h2 id="currentDay" class="current-forecast"></h2>
                             <p id="current-temp"></p>
                             <p id="current-wind"></p>
@@ -39,41 +39,42 @@
                         </div>
                     </div>
 
-                    <div id="first-day-icon">5-Day Forecast:
-                        <h5 id= "first-day" class="text-uppercase"></h5>
-                        <p id="first-day-temp"></p>
-                        <p id="first-day-wind"></p>
-                        <p id="first-day-humidity"></p>
-                    </div>
-                    <div id="second-day-icon">
-                        <h5 id= "second-day" class="text-uppercase"></h5>
-                        <p id="second-day-temp"></p>
-                        <p id="second-day-wind"></p>
-                        <p id="second-day-humidity"></p>
-                    </div>
+                    <h2 class="five-day-title">5-Day Forecast:
+                    <div id="first-day-icon" class="five-day-container">
+                        <div class="future-forecast-days">
+                            <h5 id= "first-day" class="text-uppercase"></h5>
+                            <p id="first-day-temp"></p>
+                            <p id="first-day-wind"></p>
+                            <p id="first-day-humidity"></p>
+                        </div>
+                        <div id="second-day-icon" class="future-forecast-days">
+                            <h5 id= "second-day" class="text-uppercase"></h5>
+                            <p id="second-day-temp"></p>
+                            <p id="second-day-wind"></p>
+                            <p id="second-day-humidity"></p>
+                        </div>
 
-                    <div id="third-day-icon">
-                        <h5 id= "third-day" class="text-uppercase"></h5>
-                        <p id="third-day-temp"></p>
-                        <p id="third-day-wind"></p>
-                        <p id="third-day-humidity"></p>
-                    </div>
+                        <div id="third-day-icon" class="future-forecast-days">
+                            <h5 id= "third-day" class="text-uppercase"></h5>
+                            <p id="third-day-temp"></p>
+                            <p id="third-day-wind"></p>
+                            <p id="third-day-humidity"></p>
+                        </div>
 
-                    <div id="fourth-day-icon">
-                        <h5 id= "fourth-day" class="text-uppercase"></h5>
-                        <p id="fourth-day-temp"></p>
-                        <p id="fourth-day-wind"></p>
-                        <p id="fourth-day-humidity"></p>
-                    </div>
+                        <div id="fourth-day-icon" class="future-forecast-days">
+                            <h5 id= "fourth-day" class="text-uppercase"></h5>
+                            <p id="fourth-day-temp"></p>
+                            <p id="fourth-day-wind"></p>
+                            <p id="fourth-day-humidity"></p>
+                        </div>
 
-                    <div id="fifth-day-icon">
-                        <h5 id= "fifth-day" class="text-uppercase"></h5>
-                        <p id="fifth-day-temp"></p>
-                        <p id="fifth-day-wind"></p>
-                        <p id="fifth-day-humidity"></p>
+                        <div id="fifth-day-icon" class="future-forecast-days">
+                            <h5 id= "fifth-day" class="text-uppercase"></h5>
+                            <p id="fifth-day-temp"></p>
+                            <p id="fifth-day-wind"></p>
+                            <p id="fifth-day-humidity"></p>
+                        </div>
                     </div>
-
-                </div>
             </main>
         </div>
 
