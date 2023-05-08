@@ -12,74 +12,81 @@
 
     <body>
         <header class="p-3 mb-4 bg-secondary bg-gradient border-5 border-bottom border-primary text-center text-white">
-            <h1>Weather Dashboard</h1>
+            <h1 id="titleInfo">Weather Dashboard</h1>
         </header>
 
         <div class="d-flex row">
-            <div class="col-xs-1 col-sm-4 col-md-4 col-lg-4">
-                <h1>Search for a City:</h1>
-                <input class="col-10 m-2 city-input" type="text" placeholder="San Diego">
-                <button type="button" class="btn btn-primary search">Search</button>
-                <div id="search-history"></div>  
-            </div>
+            <aside>
+            
+                <div class="col-xs-1 col-sm-4 col-md-4 col-lg-4">
+                    <h1>Search for a City:</h1>
+                    <form>
+                        <label for="search-query"></label>
+                        <input class="col-10 m-2 city-input" type="text" id="seach-query" name="city" placeholder="San Diego">
+                        <button type="search-history" class="btn btn-primary search">Search</button>
+                    </form>
+                </div>
+            </aside>
 
-            <div class="d-flex-flexbox col-3">
-                <div class="d-flex-flexbox p-5 col-3 weather-display">
-                    <div class="weather-header">
-                        <h2 id="currentDay" class="current-forecast"></h2>
-                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                        src="" id="icon">
-                        <p id="current-temp"></p>
-                        <p id="current-wind"></p>
-                        <p id="current-humidity"></p>
+            <main>
+                <div class="d-flex-flexbox col-3">
+                    <div class="d-flex-flexbox p-5 col-3 weather-display">
+                        <div class="weather-header">
+                            <h2 id="currentDay" class="current-forecast"></h2>
+                            <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                            src="" id="icon">
+                            <p id="current-temp"></p>
+                            <p id="current-wind"></p>
+                            <p id="current-humidity"></p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="future-forecast">5-Day Forecast:
-                    <h5 id= "first-day" class="text-uppercase"></h5>
-                    <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                    src="" id="first-day-icon">
-                    <p id="first-day-temp"></p>
-                    <p id="first-day-wind"></p>
-                    <p id="first-day-humidity"></p>
-                </div>
-                <div class="future-forecast">
-                    <h5 id= "second-day" class="text-uppercase"></h5>
-                    <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                    src="" id="second-day-icon">
-                    <p id="second-day-temp"></p>
-                    <p id="second-day-wind"></p>
-                    <p id="second-day-humidity"></p>
-                </div>
+                    <div class="future-forecast">5-Day Forecast:
+                        <h5 id= "first-day" class="text-uppercase"></h5>
+                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                        src="" id="first-day-icon">
+                        <p id="first-day-temp"></p>
+                        <p id="first-day-wind"></p>
+                        <p id="first-day-humidity"></p>
+                    </div>
+                    <div class="future-forecast">
+                        <h5 id= "second-day" class="text-uppercase"></h5>
+                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                        src="" id="second-day-icon">
+                        <p id="second-day-temp"></p>
+                        <p id="second-day-wind"></p>
+                        <p id="second-day-humidity"></p>
+                    </div>
 
-                <div class="future-forecast">
-                    <h5 id= "third-day" class="text-uppercase"></h5>
-                    <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                    src="" id="third-day-icon">
-                    <p id="third-day-temp"></p>
-                    <p id="third-day-wind"></p>
-                    <p id="third-day-humidity"></p>
-                </div>
+                    <div class="future-forecast">
+                        <h5 id= "third-day" class="text-uppercase"></h5>
+                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                        src="" id="third-day-icon">
+                        <p id="third-day-temp"></p>
+                        <p id="third-day-wind"></p>
+                        <p id="third-day-humidity"></p>
+                    </div>
 
-                <div class="future-forecast">
-                    <h5 id= "fourth-day" class="text-uppercase"></h5>
-                    <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                    src="" id="fourth-day-icon">
-                    <p id="fourth-day-temp"></p>
-                    <p id="fourth-day-wind"></p>
-                    <p id="fourth-day-humidity"></p>
-                </div>
+                    <div class="future-forecast">
+                        <h5 id= "fourth-day" class="text-uppercase"></h5>
+                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                        src="" id="fourth-day-icon">
+                        <p id="fourth-day-temp"></p>
+                        <p id="fourth-day-wind"></p>
+                        <p id="fourth-day-humidity"></p>
+                    </div>
 
-                <div class="future-forecast">
-                    <h5 id= "fifth-day" class="text-uppercase"></h5>
-                    <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
-                    src="" id="fifth-day-icon">
-                    <p id="fifth-day-temp"></p>
-                    <p id="fifth-day-wind"></p>
-                    <p id="fifth-day-humidity"></p>
-                </div>
+                    <div class="future-forecast">
+                        <h5 id= "fifth-day" class="text-uppercase"></h5>
+                        <img style="display: inline-block none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" 
+                        src="" id="fifth-day-icon">
+                        <p id="fifth-day-temp"></p>
+                        <p id="fifth-day-wind"></p>
+                        <p id="fifth-day-humidity"></p>
+                    </div>
 
-            </div>
+                </div>
+            </main>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

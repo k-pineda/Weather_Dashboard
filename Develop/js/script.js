@@ -1,4 +1,4 @@
-var searchHistory=$("#search-history");
+var searchHistory=$("#seach-query");
 var cityUserInput=$(".city-input");
 var citySearchBtn=$(".search");
 var requestedWeather=$(".weather-display");
@@ -22,10 +22,17 @@ function getWeatherAPI (requestWeatherUrl){
       })
       .then(function (data) {
         console.log(data)
+
+        // $('img').remove
+
+        function dateFormat (_x)
+        {
+          var currentDayForecast_DT=data.list[_x].dt_txt
+          return dayjs(currentDayForecast_DT).format("(MM/DD/YYYY)")
+        }
+
         // current day forecast
         var currentCity=data.city.name
-        var currentDayForecast_DT=data.list[0].dt_txt
-        var firstDayForecast=dayjs(currentDayForecast_DT).format("(MM/DD/YYYY)")
         var currentDayForecast_Icon=data.list[0].weather[0].icon
         var currentDayForecast_Temp=data.list[0].main.temp
         var currentDayForecast_Wind=data.list[0].wind.speed
@@ -36,7 +43,7 @@ function getWeatherAPI (requestWeatherUrl){
         
         $("#icon").attr("src",weatherIconUrl)
 
-        $(".weather-header h2").text(currentCity + " " + firstDayForecast)
+        $(".weather-header h2").text(currentCity + " " + dateFormat(0))
 
         weatherTemperature.text(`Temp:${currentDayForecast_Temp}°F`)
         
@@ -44,8 +51,6 @@ function getWeatherAPI (requestWeatherUrl){
 
         weatherHumidity.text(`Humidity:${currentDayForecast_Humidity}%`)
       // 1st day of 5 day forecast 
-        var weatherDayForecast_DT=data.list[1].dt_txt
-        var futureDayForecast=dayjs(weatherDayForecast_DT).format("(MM/DD/YYYY)")
         var firstDayForecast_Icon=data.list[1].weather[0].icon
         var firstDayForecast_Temp=data.list[1].main.temp
         var firstDayForecast_Wind=data.list[1].wind.speed
@@ -55,7 +60,7 @@ function getWeatherAPI (requestWeatherUrl){
         
         $("#first-day-icon").attr("src",weatherIconUrl)
 
-        $("#first-day").text(futureDayForecast)
+        $("#first-day").text(dateFormat(1))
 
         $("#first-day-temp").text(`Temp:${firstDayForecast_Temp}°F`)
         
@@ -64,8 +69,6 @@ function getWeatherAPI (requestWeatherUrl){
         $("#first-day-humidity").text(`Humidity:${firstDayForecast_Humidity}%`)
 
       // 2nd day of 5 day forecast 
-        var weatherDayForecast_DT=data.list[9].dt_txt
-        var secondDayForecast=dayjs(weatherDayForecast_DT).format("(MM/DD/YYYY)")
         var secondDayForecast_Icon=data.list[9].weather[0].icon
         var secondDayForecast_Temp=data.list[9].main.temp
         var secondDayForecast_Wind=data.list[9].wind.speed
@@ -75,17 +78,15 @@ function getWeatherAPI (requestWeatherUrl){
         
         $("#second-day-icon").attr("src",weatherIconUrl)
 
-        $("#second-day").text(secondDayForecast)
+        $("#second-day").text(dateFormat(9))
 
         $("#second-day-temp").text(`Temp:${secondDayForecast_Temp}°F`)
         
         $("#second-day-wind").text(`Wind:${secondDayForecast_Wind}MPH`)
 
-        $("#second-day-humidity").text(`Humidity:${firstDayForecast_Humidity}%`)
+        $("#second-day-humidity").text(`Humidity:${secondDayForecast_Humidity}%`)
 
         // 3rd day of 5 day forecast 
-        var weatherDayForecast_DT=data.list[17].dt_txt
-        var thirdDayForecast=dayjs(weatherDayForecast_DT).format("(MM/DD/YYYY)")
         var thirdDayForecast_Icon=data.list[17].weather[0].icon
         var thirdDayForecast_Temp=data.list[17].main.temp
         var thirdDayForecast_Wind=data.list[17].wind.speed
@@ -95,7 +96,7 @@ function getWeatherAPI (requestWeatherUrl){
         
         $("#third-day-icon").attr("src",weatherIconUrl)
 
-        $("#third-day").text(thirdDayForecast)
+        $("#third-day").text(dateFormat(17))
 
         $("#third-day-temp").text(`Temp:${thirdDayForecast_Temp}°F`)
         
@@ -104,8 +105,6 @@ function getWeatherAPI (requestWeatherUrl){
         $("#third-day-humidity").text(`Humidity:${thirdDayForecast_Humidity}%`)
 
           // 4th day of 5 day forecast 
-          var weatherDayForecast_DT=data.list[25].dt_txt
-          var fourthDayForecast=dayjs(weatherDayForecast_DT).format("(MM/DD/YYYY)")
           var fourthDayForecast_Icon=data.list[25].weather[0].icon
           var fourthDayForecast_Temp=data.list[25].main.temp
           var fourthDayForecast_Wind=data.list[25].wind.speed
@@ -115,7 +114,7 @@ function getWeatherAPI (requestWeatherUrl){
           
           $("#fourth-day-icon").attr("src",weatherIconUrl)
   
-          $("#fourth-day").text(fourthDayForecast)
+          $("#fourth-day").text(dateFormat(25))
   
           $("#fourth-day-temp").text(`Temp:${fourthDayForecast_Temp}°F`)
           
@@ -124,8 +123,6 @@ function getWeatherAPI (requestWeatherUrl){
           $("#fourth-day-humidity").text(`Humidity:${fourthDayForecast_Humidity}%`)
 
           // 5th day of 5 day forecast 
-          var weatherDayForecast_DT=data.list[33].dt_txt
-          var fifthDayForecast=dayjs(weatherDayForecast_DT).format("(MM/DD/YYYY)")
           var fifthDayForecast_Icon=data.list[33].weather[0].icon
           var fifthDayForecast_Temp=data.list[33].main.temp
           var fifthDayForecast_Wind=data.list[33].wind.speed
@@ -135,13 +132,14 @@ function getWeatherAPI (requestWeatherUrl){
           
           $("#fifth-day-icon").attr("src",weatherIconUrl)
 
-          $("#fifth-day").text(fifthDayForecast)
+          $("#fifth-day").text(dateFormat(33))
 
           $("#fifth-day-temp").text(`Temp:${fifthDayForecast_Temp}°F`)
           
           $("#fifth-day-wind").text(`Wind:${fifthDayForecast_Wind}MPH`)
 
           $("#fifth-day-humidity").text(`Humidity:${fifthDayForecast_Humidity}%`)
+
       })
 }
 
@@ -171,7 +169,8 @@ function getApi(requestUrl) {
   localStorage.setItem('city',cityName); 
 }
 
-citySearchBtn.on('click', function (){
+citySearchBtn.on('click', function (event){
+  event.preventDefault();
   userSearch(); 
 var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
 
