@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+
+header h1{
+    background-color: rgb(14, 90, 90);
+    color: white;
+    padding: 10px;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    height: 100%;
+}
+
+#titleInfo {
+    display: flex;
+    height: 100%;
+}
+
+/*This is for the aside*/
+
+aside {
+    flex: 20%;
+}
+
+aside h2 {
+    padding: 10px;
+}
+
+#form-search {
+    padding: 10px;
+}
+
+aside input {
+    background-color:white;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.search {
+    width: 100%;
+    background-color: darkcyan;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#underline{
+    background-color: darkcyan;
+    width: 93%;
+    margin: auto;
+    margin-top: 10px;
+    height: 2px;
+}
+
+#city-history{
+    padding: 10px;
+}
+
+.history{
+    width: 100%;
+    background-color: grey;
+    border: none;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/*This is for the main content*/
+
+main {
+    flex: 80%;
+    background-color: darkcyan;
+    height: 100%;
+}
+
+.current-day {
+    margin: 20px;
+    background-color: lightblue;
+    border: solid 2px black;
+    padding: 10px;
+    height: 200px;
+    color: white;
+    width: auto;
+    position: relative;
+}
+
+#current-day-icon img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+}
+
+#current-temp,
+#first-day-temp,
+#second-day-temp,
+#third-day-temp,
+#fourth-day-temp,
+#fifth-day-temp
+{
+    background: none;
+    color: black;
+    padding: 10px;
+}
+
+#current-wind,
+#first-day-wind,
+#second-day-wind,
+#third-day-wind,
+#fourth-day-wind,
+#fifth-day-wind
+{
+    background-color: none;
+    color: black;
+    padding: 10px;
+}
+
+#current-humidity,
+#first-day-humidity
+#second-day-humidity
+#third-day-humidity,
+#fourth-day-humidity,
+#fifth-day-humidity
+{
+    background-color: none;
+    color: black;
+    padding: 10px;
+}
+
+.current-day{
+    padding: 10px;
+    color: black;
+    background: none;
+}
+
+.five-day-title {
+    background-color: darkcyan;
+    padding: 20px;
+}
+
+.five-day-container {
+    background-color: darkcyan;
+    display: flex;
+}
+
+.future-forecast-days{
+    background-color: rgb(14, 90, 90);
+    flex: 20%;
+    margin: 10px;
+    height: 300px;
+}
+
+/* .day{
+    background-color: rgb(14, 90, 90);
+    padding: 10px;
+    color: white;
+}
+
+#day1 {
+    background: none;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    width: auto;
+    position: relative;
+}
+
+#day1 img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+}
+
+#day2 {
+    background: none;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    width: auto;
+    position: relative;
+}
+
+#day2 img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+}
+
+#day3 {
+    background: none;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    width: auto;
+    position: relative;
+}
+
+#day3 img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+}
+
+
+#day4 {
+    background: none;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    width: auto;
+    position: relative;
+}
+
+#day4 img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+}
+
+#day5 {
+    background: none;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    width: auto;
+    position: relative;
+}
+
+#day5 img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    display: inline-block;
+    height: auto;
+} */
