@@ -22,7 +22,7 @@ function getWeatherAPI (requestWeatherUrl){
       .then(function (data) {
         console.log(data)
 
-        $('img').remove
+        $('img').remove()
 
         function dateFormat (_x)
         {
@@ -135,6 +135,7 @@ function getWeatherAPI (requestWeatherUrl){
 
           if (a.includes(b)){
             return
+
           } else {
             var button = $("<button>", {class:"history"});
             button.text(data.city.name);
@@ -181,7 +182,15 @@ citySearchBtn.on('click', function (event){
 var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
 
 getApi(requestGeocodeUrl);
+})
+
+$(cityHistory).on("click",".history", function(){
+  cityName=$(this).text();
+  var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
+  getApi(requestGeocodeUrl);
+
+  $("#first-day-icon img").remove();
+
 
 
 })
-
