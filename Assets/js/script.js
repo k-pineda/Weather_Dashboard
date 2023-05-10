@@ -16,12 +16,9 @@ function getWeatherAPI (requestWeatherUrl){
   fetch(requestWeatherUrl)
       .then(function (response) 
       {
-        console.log(response.status);
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
-
         $('img').remove()
 
         function dateFormat (_x)
@@ -154,12 +151,10 @@ function getApi(requestUrl) {
     fetch(requestUrl)
       .then(function (response) 
       {
-        console.log(response.status);
         return response.json();
       })
       .then(function (data) 
       {
-
         var geoLocationLat=data.city.coord.lat
 
         var geoLocationLon=data.city.coord.lon 
@@ -190,7 +185,5 @@ $(cityHistory).on("click",".history", function(){
   getApi(requestGeocodeUrl);
 
   $("#first-day-icon img").remove();
-
-
 
 })
