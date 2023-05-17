@@ -164,19 +164,20 @@ function getApi(requestUrl) {
       }  
       )};
 
+var cityName=""
 
- function userSearch()
+function userSearch(cityName)
 {
-  cityName = $(cityUserInput).val()
+  cityName = $(cityUserInput).val() || "Miami"
   localStorage.setItem('city',cityName); 
+  var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
+  console.log(requestGeocodeUrl)
+  getApi(requestGeocodeUrl);
 }
 
 citySearchBtn.on('click', function (event){
   event.preventDefault();
-  userSearch(); 
-var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=3484e08d51e803d19133758ad6e77ac5`;
-
-getApi(requestGeocodeUrl);
+  userSearch(cityName); 
 })
 
 $(cityHistory).on("click",".history", function(){
@@ -187,3 +188,15 @@ $(cityHistory).on("click",".history", function(){
   $("#first-day-icon img").remove();
 
 })
+
+var city=""
+ 
+  function pageLoad(city)
+{
+  localStorage.setItem('city',city); 
+  var requestGeocodeUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=3484e08d51e803d19133758ad6e77ac5`;
+  console.log(requestGeocodeUrl)
+  getApi(requestGeocodeUrl);
+}
+
+pageLoad("Miami")
