@@ -11,7 +11,7 @@ To use the weather dashboard, click inside the text box and type the name of the
 
 ![Weather Dashboard Screenshot](./Assets/weatherdashboard.png)
 
-[Work Day Scheduler Webpage](https://k-pineda.github.io/Work_Day_Scheduler/)
+[Weather Dashboard Webpage](https://k-pineda.github.io/Weather_Dashboard/)
 
 ## Credits
 
